@@ -1,0 +1,36 @@
+<!doctype html>
+<title>Milestone Project</title>
+<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.css" type="text/css" />
+<script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.5.min.js"></script>
+<div class=page>
+    <h1>User Input</h1>
+    <div class=metanav>
+        
+        <h4>
+            Please enter a stock ticker, e.g. GOOG, and check desired features:
+        </h4>
+        
+        <form id='userinfoform' method='post' action='/index' >
+            <p>
+            Ticker symbol: <input type='text' name='stock_ticker' />
+            </p>
+            <p>
+            Closing price: <input type='checkbox' name='close' />
+            </p>
+            <p>
+            Adjusted closing price: <input type='checkbox' name='adj_close' />
+            </p>
+            <p>
+            Opening price: <input type='checkbox' name ='open' />
+            </p>
+	    <p>
+	    Adjusted opening price: <input type='checkbox' name='adj_open' />
+	    </p>
+            <p>
+            <input type='submit' value='Submit' />
+            </p>
+        </form>
+        
+    </div>
+</div>
+</html>
