@@ -5,7 +5,7 @@ from io import BytesIO
 import os
 from bokeh.embed import components
 import pandas as pd
-from bokeh.models import HoverTool
+#from bokeh.models import HoverTool
 
 app = Flask(__name__)
 
@@ -42,9 +42,8 @@ def result():
     df1['date']=pd.to_datetime(df1['date'])
     df1=df1.sort_values(by='date',ascending=False)
     
-    hover = HoverTool(tooltips=[('Date', '$x')])
-    plot=figure(tools=[hover],#tools="pan,wheel_zoom,box_zoom,reset,save",
-            
+    
+    plot=figure(tools="pan,wheel_zoom,box_zoom,reset,save",
                 title='Data from Quandle WIKI set',
                 x_axis_label='date',
                 x_axis_type='datetime')
