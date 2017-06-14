@@ -5,16 +5,14 @@ from io import BytesIO
 import os
 from bokeh.embed import components
 import pandas as pd
-#from bokeh.models import HoverTool
+
 
 app = Flask(__name__)
 
 app.vars = {}
 
-plot_choices={
-    'close':'close',    'adj_close':'adj.close',   'open':'open', 'adj_open':'adj.open'
-}
-plot_colors={0:'blue',1:'red',2:'green',3:'brown'}
+plot_choices={'close':'close',    'adj_close':'adj_close',   'open':'open', 'adj_open':'adj_open'}
+plot_colors={0:'blue',1:'red',2:'green',3:'magenta'}
 @app.route('/')
 def main():
   return redirect('/index')
@@ -30,6 +28,8 @@ def index():
 
 @app.route('/result', methods=['GET', 'POST'])
 def result():
+
+    
     stock_ticker = app.vars['stock_ticker']
     api_url='https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?api_key=YwxVxgpgdavvx-E3dYFe&ticker=%s' %stock_ticker
     session = requests.Session()
@@ -47,7 +47,7 @@ def result():
                 title='Data from Quandle WIKI set',
                 x_axis_label='date',
                 x_axis_type='datetime')
-    #now we want to access to the other variables so we need to remove stock_ticker from it
+    #we want to access to the other variables so we need to remove stock_ticker from it
     #to be able to iterate
     del app.vars['stock_ticker']
     for i, key in enumerate(app.vars.keys()):
@@ -57,6 +57,7 @@ def result():
     script, div = components(plot)
 
     return render_template('stock_result.html', script=script, div=div)
+
 
 ###################################################################################
 

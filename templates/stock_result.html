@@ -5,7 +5,15 @@
 <script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.6.min.js"></script>
 {{ script | safe }}
 </head>
+
 <body>
+    <button onclick="goBack()">Go Back</button>
+    
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
     <div class=page>
       <h1>Stock ticker data history</h1>
       {{ div | safe }}
