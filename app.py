@@ -50,6 +50,7 @@ def result():
     #we want to access to the other variables so we need to remove stock_ticker from it
     #to be able to iterate
     del app.vars['stock_ticker']
+
     for i, key in enumerate(app.vars.keys()):
         plot.line(df1['date'],df1[plot_choices[key]],legend='{0}:{1}'.format(stock_ticker,plot_choices[key]),
                   color=plot_colors[i])
