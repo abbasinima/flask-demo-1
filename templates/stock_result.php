@@ -7,15 +7,15 @@
 </head>
 
 <body>
-    <button onclick="goBack()">Go Back</button>
-    
-    <script>
-        function goBack() {
-            window.history.back();
-        }
+<a href="http://127.0.0.1:33507/">Back</a><br>
+<?php
+	// Retrieve the URL variables (using PHP).
+	$num = $_POST['stock_ticker'];
+	echo "Stock ticker for : ".$num.;
+	?>
     </script>
     <div class=page>
-      <h1>Stock ticker data history</h1>
+        Stock ticker for selected symbol <?php echo $_POST["stock_ticker"]; ?>.
       {{ div | safe }}
     </div>
   </body>

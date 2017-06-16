@@ -5,7 +5,6 @@
 <div class=page>
     <h1>User Input</h1>
     <div class=metanav>
-        
         <h4>
             Please enter a stock ticker, e.g. GOOG, and check desired features:
         </h4>
@@ -28,9 +27,11 @@
             </p>
             <p>
             <input type='submit' value='Submit' />
+            <input type='reset' value='Reset'/>
+                
             </p>
         </form>
-        
+
     </div>
 </div>
 </html>

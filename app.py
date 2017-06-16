@@ -20,7 +20,8 @@ def main():
 @app.route('/index', methods=['GET', 'POST'])
 def index():
     if request.method == 'GET':
-        return render_template('stock_info.html')
+        app.vars={}
+        return render_template('stock_info.php')
     else:
         for key in request.form.keys():
             app.vars[key] = request.form[key]
@@ -29,7 +30,7 @@ def index():
 @app.route('/result', methods=['GET', 'POST'])
 def result():
 
-    
+
     stock_ticker = app.vars['stock_ticker']
     api_url='https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?api_key=YwxVxgpgdavvx-E3dYFe&ticker=%s' %stock_ticker
     session = requests.Session()
@@ -57,7 +58,7 @@ def result():
     
     script, div = components(plot)
 
-    return render_template('stock_result.html', script=script, div=div)
+    return render_template('stock_result.php', script=script, div=div)
 
 
 ###################################################################################
